@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/navCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#143F9D"
+        android:elevation="4dp"
+        app:contentPadding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               >
+
+
+               <ImageView
+                   android:id="@+id/notification_button"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:rotation="20"
+                   android:src="@drawable/ic_notification"
+                   android:transformPivotX="10.0dp"
+                   android:transformPivotY="10.0dp"
+                   android:foregroundGravity="center"
+                   android:layout_margin="15dp"
+                   app:layout_constraintRight_toLeftOf="@id/profile_button"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <ImageView
+                   android:id="@+id/profile_button"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:src="@drawable/profile"
+                   android:layout_margin="3dp"
+                   app:layout_constraintLeft_toRightOf="@id/notification_button"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   tools:ignore="MissingConstraints" />
+
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/cardview_light_background"
+                    android:text="Today Sale Amount :"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/today_sale_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:textColor="@color/cardview_light_background"
+                    android:textStyle="bold"
+                    android:text="2000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="12dp"
+                    android:textColor="@color/cardview_light_background"
+                    android:text=" Kyats"/>
+            </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/detail_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/new_order_image_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/new_order_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_order"
+                app:layout_constraintLeft_toRightOf="@id/detail_image_button"
+                app:layout_constraintRight_toLeftOf="@id/confirm_order_image_button"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/confirm_order_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_confirm"
+                app:layout_constraintLeft_toRightOf="@id/new_order_image_button"
+                app:layout_constraintRight_toLeftOf="@id/delivered_image_button"
+                tools:ignore="MissingConstraints" />
+
+            <ImageButton
+                android:id="@+id/delivered_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delivered"
+                app:layout_constraintLeft_toRightOf="@id/confirm_order_image_button"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@id/navCardView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navCardView"
+        app:layout_constraintVertical_bias="0.268"
+        app:navGraph="@navigation/mobile_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

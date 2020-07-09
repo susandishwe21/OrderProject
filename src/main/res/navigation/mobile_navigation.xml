@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.projectexample.ui.fragment.SupplierItemFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_supplier_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_supplierItemDetailFragment"
+            app:destination="@id/supplierItemDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.projectexample.ui.history.DashboardFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.projectexample.ui.reports.NotificationsFragment"
+        android:label="@string/title_reports"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.projectexample.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/supplierItemDetailFragment"
+        android:name="com.example.projectexample.ui.fragment.SupplierItemDetailFragment"
+        android:label="fragment_supplier_item_detail"
+        tools:layout="@layout/fragment_supplier_item_detail" >
+        <argument
+            android:name="image"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="suppliername"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="address"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="itemname"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="phone"
+            app:argType="string"
+            android:defaultValue="default" />
+        <argument
+            android:name="price"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
+</navigation>
